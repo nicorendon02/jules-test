@@ -37,15 +37,17 @@ function renderStock() {
 
         let progressBarColor = cookie.color;
         let textColorClass = '';
+        let badgeHtml = '';
 
         if (displayStock < 10) {
             progressBarColor = 'danger';
             textColorClass = 'text-danger font-weight-bold';
+            badgeHtml = '<span class="badge badge-danger ml-2">Low Stock!</span>';
         }
 
         const itemHtml = `
             <h4 class="small font-weight-bold">
-                ${cookie.type} 
+                ${cookie.type}${badgeHtml}
                 <span class="float-right ${textColorClass}">
                     ${displayStock} units
                 </span>
